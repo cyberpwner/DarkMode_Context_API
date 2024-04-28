@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import ThemeContext from '../contexts/ThemeContext';
 
-function ThemeProvider({ children, isDarkMode, setIsDarkMode }) {
+function ThemeProvider({ children }) {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   const memoizedTheme = useMemo(
     () => ({ isDarkMode, setIsDarkMode }),
     [isDarkMode, setIsDarkMode]
@@ -17,8 +19,6 @@ function ThemeProvider({ children, isDarkMode, setIsDarkMode }) {
 
 ThemeProvider.propTypes = {
   children: PropTypes.node.isRequired,
-  isDarkMode: PropTypes.bool.isRequired,
-  setIsDarkMode: PropTypes.func.isRequired,
 };
 
 export default ThemeProvider;

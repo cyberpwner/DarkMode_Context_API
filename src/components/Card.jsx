@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import ToggleButton from './ToggleButton';
 import useTheme from '../hooks/useTheme';
+import moon from '../../public/moon.png';
+import sun from '../../public/sun.png';
 
 function Card() {
   const { isDarkMode } = useTheme();
@@ -13,15 +15,11 @@ function Card() {
         'bg-sky-900': isDarkMode,
       })}
     >
-      {!isDarkMode ? (
-        <img src="../../public/sun.png" alt="Sun" className="w-40 max-w-full" />
-      ) : (
-        <img
-          src="../../public/moon.png"
-          alt="Sun"
-          className="w-40 max-w-full"
-        />
-      )}
+      <img
+        src={isDarkMode ? moon : sun}
+        alt={isDarkMode ? 'Moon' : 'Sun'}
+        className="w-40 max-w-full"
+      />
       <section className="grid grid-cols-1 gap-2 place-items-center">
         <h1
           className={classNames({

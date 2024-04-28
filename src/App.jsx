@@ -1,20 +1,19 @@
 import classNames from 'classnames';
-import { useState } from 'react';
 import Card from './components/Card';
-import ThemeProvider from './components/ThemeProvider';
+import useTheme from './hooks/useTheme';
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const { isDarkMode } = useTheme();
 
   return (
     <main
       className={classNames({
-        'h-full grid grid-cols-1 place-items-center': true,
+        'grid grid-cols-1 place-items-center w-full h-screen': true,
+        'bg-gray-100': !isDarkMode,
+        'bg-slate-800': isDarkMode,
       })}
     >
-      <ThemeProvider isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}>
-        <Card />
-      </ThemeProvider>
+      <Card />
     </main>
   );
 }
