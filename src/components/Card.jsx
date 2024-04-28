@@ -1,8 +1,10 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import ToggleButton from './ToggleButton';
+import useTheme from '../hooks/useTheme';
 
-function Card({ isDarkMode, setIsDarkMode }) {
+function Card() {
+  const { isDarkMode } = useTheme();
+
   return (
     <section
       className={classNames({
@@ -40,14 +42,9 @@ function Card({ isDarkMode, setIsDarkMode }) {
         </p>
       </section>
 
-      <ToggleButton isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+      <ToggleButton />
     </section>
   );
 }
-
-Card.propTypes = {
-  isDarkMode: PropTypes.bool.isRequired,
-  setIsDarkMode: PropTypes.func.isRequired,
-};
 
 export default Card;

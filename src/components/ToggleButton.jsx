@@ -1,7 +1,9 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import useTheme from '../hooks/useTheme';
 
-function ToggleButton({ isDarkMode, setIsDarkMode }) {
+function ToggleButton() {
+  const { isDarkMode, setIsDarkMode } = useTheme();
+
   return (
     <button
       type="button"
@@ -32,10 +34,5 @@ function ToggleButton({ isDarkMode, setIsDarkMode }) {
     </button>
   );
 }
-
-ToggleButton.propTypes = {
-  isDarkMode: PropTypes.bool.isRequired,
-  setIsDarkMode: PropTypes.func.isRequired,
-};
 
 export default ToggleButton;
