@@ -8,7 +8,7 @@ function App() {
   return (
     <main
       className={classNames({
-        'grid grid-cols-1 place-items-center w-full h-screen': true,
+        'grid grid-cols-1 place-items-center w-full min-h-screen p-5': true,
         'bg-gray-100': !isDarkMode,
         'bg-slate-800': isDarkMode,
       })}
