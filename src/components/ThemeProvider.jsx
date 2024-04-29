@@ -3,7 +3,9 @@ import { useMemo, useState } from 'react';
 import ThemeContext from '../contexts/ThemeContext';
 
 function ThemeProvider({ children }) {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
+
+  const [isDarkMode, setIsDarkMode] = useState(darkThemeMq.matches);
 
   const memoizedTheme = useMemo(
     () => ({ isDarkMode, setIsDarkMode }),
